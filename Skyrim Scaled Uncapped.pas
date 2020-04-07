@@ -37,37 +37,22 @@ begin
 		
 		
 		// User can cuztomize iBase and/or iShift (not recomended) below.
-
-		// Note: This value will get divided by 1000. 
-		// Default: 800 / 1000 = 0.80 - this would be the level multiplier if set to 800.
-		// This value acts as a base mult. 
-		// The weight of the OldLevel will be added to this.
-		// You can tune it down as you please. Going up isn't recomended unless you want hell.
-		iBase := 1000;
-		
-		// This value will get divided by 1000 
-		// This factor is multiplied with old NPC level and result will be added to Base (= new level). Go easy.
+		// Default: 800
+		iBase := 800;		
+		// Default: 10
 		iShift := 20;
   	
    	iOldLevel := GetElementNativeValues(e, 'ACBS\Level');
-		
-		// Result of NewLevel will get divided by 1000.
-		// Example and default: ((OldLevel * 10) + 800) / 1000 = NewMultiplier
 		iNewLevel := iOldLevel * iShift;
 	 
 	SetElementNativeValues(e, 'ACBS\Flags', GetElementNativeValues(e, 'ACBS\Flags') or 16);
  	SetElementNativeValues(e, 'ACBS\Flags', GetElementNativeValues(e, 'ACBS\Flags') or 128);
 	  
-		// The Base is added to the NewLevel and then divided by 1000
-		// This is how this field works, for this setting 1000 = 1.0
-		SetElementNativeValues(e, 'ACBS\Level Mult',(iNewLevel + iBase));
+	SetElementNativeValues(e, 'ACBS\Level Mult',(iNewLevel + iBase));
 
 	// This changes Starting Health value of races.	
 
-		// NPC initial health is usually Offset + Starting health
-		// This means if untouched, every NPC will have halved health values.
-		// To avoid initial very small values we double it.
-		// Users may change this value if they want.
+		// Default: 2
 		iMult := 2;
 				
 	if Signature(e) = 'RACE' then
