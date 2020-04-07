@@ -35,7 +35,7 @@ begin
 	
 	if GetElementNativeValues(e, 'ACBS\Flags\PC Level Mult') then exit;
 		
-		// User can cuztomize iBase and/or iShift below.
+		// User can customize iBase and/or iShift below.
 		iBase := 800;
 		iShift := 20;
   	
