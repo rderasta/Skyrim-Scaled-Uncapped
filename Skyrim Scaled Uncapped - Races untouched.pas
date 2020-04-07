@@ -35,19 +35,8 @@ begin
 	
 	if GetElementNativeValues(e, 'ACBS\Flags\PC Level Mult') then exit;
 		
-		
-		// User can cuztomize iBase and/or iShift (not recomended) below.
-
-		// Note: This value will get divided by 1000. 
-		// Default: 800 / 1000 = 0.80 - this would be the level multiplier if set to 800.
-		// This value acts as a base mult. 
-		// The weight of the OldLevel will be added to this.
-		// You can tune it down as you please. Going up isn't recomended unless you want hell.
-		iBase := 1000;
-		
-		// This value will get divided by 1000 
-		// Default: 10 / 1000 = 0.01
-		// This factor is multiplied with NPC level and result added to Base. Go easy.
+		// User can cuztomize iBase and/or iShift below.
+		iBase := 800;
 		iShift := 20;
   	
    	iOldLevel := GetElementNativeValues(e, 'ACBS\Level');
@@ -58,10 +47,8 @@ begin
 	 
 	SetElementNativeValues(e, 'ACBS\Flags', GetElementNativeValues(e, 'ACBS\Flags') or 16);
  	SetElementNativeValues(e, 'ACBS\Flags', GetElementNativeValues(e, 'ACBS\Flags') or 128);
-	  
-		// The Base is added to the NewLevel and then divided by 1000
-		// This is how this field works, for this setting 1000 = 1.0
-		SetElementNativeValues(e, 'ACBS\Level Mult',(iNewLevel + iBase));
+	
+	SetElementNativeValues(e, 'ACBS\Level Mult',(iNewLevel + iBase));
 		
  end;
 
