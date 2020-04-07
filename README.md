@@ -1,8 +1,11 @@
 # Skyrim-Scaled-Uncapped
 xEdit Script - Skyrim Scaled Uncapped
+
 FO4Edit - Also works for Fallout 4 (without races changes)
 
+
 Note: Still need high end game testing to define which values would be the best for the mult math. 0.8 might sound easy at the beggining and/or 1.0 might get insane high end. Need moar testing.
+
 
 This is an xEdit script that grabs every NPC old level and turns it into a multiplier value. This means every NPC will scale to/around of 0.80 and up to 1.5 times (or more) of what PC level is. It sets a whole new difficulty curve and an extremely balanced and challenging play through. Also encounter zones are uncapped.
 
