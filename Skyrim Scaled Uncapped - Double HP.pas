@@ -11,7 +11,7 @@ function Process(e: IInterface): integer;
 
 var
 
- iOldLevel, iNewLevel, iShift, iBase, iHealth, iHealthPlus, iMult : integer;
+ iOldLevel, iNewLevel, iShift, iBase, iHealth, iHealthPlus, iStam, iStamPlus, iMgk, iMgkPlus, iMult : integer;
 	
 begin
  Result := 0;
@@ -57,11 +57,19 @@ begin
 				
 	if Signature(e) = 'RACE' then
 	
-    	iHealth := GetElementNativeValues(e, 'DATA - DATA\Starting Health');
-		iHealthPlus := iHealth / iMult;
+    		iHealth := GetElementNativeValues(e, 'DATA - DATA\Starting Health');
+				 
+			SetElementNativeValues(e, 'DATA - DATA\Starting Health',(iHealth * iMult));
+			
+		iStam := GetElementNativeValues(e, 'DATA - DATA\Starting Stamina');
+		iStamPlus := iStam / iMult;
 		 
-	SetElementNativeValues(e, 'DATA - DATA\Starting Health',(iHealth + iHealthPlus));
-
+			SetElementNativeValues(e, 'DATA - DATA\Starting Stamina',(iStam + iStamPlus));
+		
+		iMgk := GetElementNativeValues(e, 'DATA - DATA\Starting Magicka');
+		iMgkPlus := iMgk / iMult;
+		 
+			SetElementNativeValues(e, 'DATA - DATA\Starting Magicka',(iMgk + iMgkPlus));
  end;
 
 
